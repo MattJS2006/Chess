@@ -36,4 +36,9 @@ public class Piece {
         return true;
     }
 
+    //Set a new position for a Piece
+    public void setPosition(String newposition){
+
+    }
+
 }

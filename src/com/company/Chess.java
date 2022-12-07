@@ -12,6 +12,7 @@ public class Chess {
             board[1][c] = new Piece(1, c, false);
             board[6][c] = new Piece(6, c, true);
         }
+        board[0][4] = new King("E1",false);
     }
 
     public void display(){
@@ -48,6 +49,13 @@ public class Chess {
         }
         if (validMove){
             System.out.println(toMove.getSymbol() + " moves to " + endPosition);
+            // Update board
+            int startRow = ChessUtils.getRowFromPosition(startPosition);
+            int startCol = ChessUtils.getColumnFromPosititon(startPosition);
+            int targetRow = ChessUtils.getRowFromPosition(endPosition);
+            int targetCol = ChessUtils.getColumnFromPosititon(endPosition);
+            board[targetRow][targetCol] = board[startRow][startCol];
+            board[startRow][startCol] = null;
         }else{
             System.out.println("You can't do that!");
         }
