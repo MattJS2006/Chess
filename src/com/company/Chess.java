@@ -21,7 +21,7 @@ public class Chess {
                 if(board[r][c] != null){
                     System.out.print(board[r][c].getSymbol() + " ");
                 }else{
-                    System.out.print("   ");
+                    System.out.print("  ");
                 }
             }
             System.out.println();
