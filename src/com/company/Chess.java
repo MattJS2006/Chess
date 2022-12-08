@@ -16,7 +16,24 @@ public class Chess {
     }
 
     public void display(){
+        for(int i=0; i<19; i++) {
+            System.out.print("-");
+        }
+        System.out.println("");
+        int asciiNum = 'A';
+        System.out.print("  ");
+        for(int i=0; i<8; i++) {
+            char asciiLetter = (char) asciiNum;
+            System.out.print(asciiLetter + " ");
+            asciiNum = asciiNum + 1;
+        }
+        System.out.println("");
+        for(int i=0; i<19; i++) {
+            System.out.print("-");
+        }
+        System.out.println("");
         for(int r=0; r<8; r++){
+            System.out.print("| ");
             for(int c=0; c<8; c++){
                 if(board[r][c] != null){
                     System.out.print(board[r][c].getSymbol() + " ");
@@ -24,8 +41,13 @@ public class Chess {
                     System.out.print("  ");
                 }
             }
+            System.out.print("| " + (r+1));
             System.out.println();
         }
+        for(int i=0; i<19; i++) {
+            System.out.print("-");
+        }
+        System.out.println("");
     }
 
     // Takes chess coordinates e.g. A8 and returns piece at location

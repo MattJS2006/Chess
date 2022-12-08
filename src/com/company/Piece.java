@@ -37,7 +37,9 @@ public class Piece {
     }
 
     //Set a new position for a Piece
-    public void setPosition(String newposition){
+    public void setPosition(String newPosition){
+        row = ChessUtils.getRowFromPosition(newPosition);
+        column = ChessUtils.getColumnFromPosititon(newPosition);
     }
 
 }
