@@ -4,6 +4,8 @@ import java.util.Scanner;
 
 public class Chess {
     private Piece[][] board;
+    char[] blackSetup = {'♜', '♞', '♝', '♛', '♚', '♝', '♞', '♜'};
+    char[] whiteSetup = {'♖', '♘', '♗', '♔', '♕', '♗', '♘', '♖'};
 
     public Chess(){
         board = new Piece[8][8];
@@ -12,7 +14,13 @@ public class Chess {
             board[1][c] = new Piece(1, c, false);
             board[6][c] = new Piece(6, c, true);
         }
-        board[0][4] = new King("E1",false);
+        board[0][4] = new King("E1",true);
+        board[7][4] = new King("E8", false);
+        board[0][0] = new Rook("A1", true);
+        board[0][7] = new Rook("H1", true);
+        board[7][0] = new Rook("A8", false);
+        board[7][7] = new Rook("H8", false);
+
     }
 
     public void display(){

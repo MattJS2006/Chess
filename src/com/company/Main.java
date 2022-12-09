@@ -10,8 +10,10 @@ public class Main {
         test = new Piece("C3", false);
         System.out.println(test.getPosition() + " is " + test.getSymbol());
         Chess game = new Chess();
-        game.display();
-        game.move();
-        game.display();
+        boolean win = false;
+        while (win != true) {
+            game.display();
+            game.move();
+        }
     }
 }
