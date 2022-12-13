@@ -21,7 +21,7 @@ public class King extends Piece{
         if(targetRow == row && targetCol == col){
             return false;
         }
-        // Can only move 1 square in any diretion
+        // Can only move 1 square in any direction
         if (Math.abs(row - targetRow) > 1){
             return false;
         }

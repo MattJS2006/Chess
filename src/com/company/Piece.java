@@ -1,5 +1,7 @@
 package com.company;
 
+import javax.swing.text.Position;
+
 public class Piece {
     private int row;
     private int column;
@@ -33,6 +35,10 @@ public class Piece {
     }
 
     public boolean isValidMove(String targetPos){
+        // Can't stand still
+        if(getPosition().equals(targetPos)){
+            return false;
+        }
         return true;
     }
 

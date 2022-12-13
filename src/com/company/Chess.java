@@ -20,6 +20,10 @@ public class Chess {
         board[0][7] = new Rook("H1", true);
         board[7][0] = new Rook("A8", false);
         board[7][7] = new Rook("H8", false);
+        board[0][1] = new Knight("B1", true);
+        board[0][6] = new Knight("G1", true);
+        board[7][1] = new Knight("B8", false);
+        board[7][6] = new Knight("G8", false);
 
     }
 
