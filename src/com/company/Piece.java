@@ -1,6 +1,6 @@
 package com.company;
 
-import javax.swing.text.Position;
+import java.util.ArrayList;
 
 public class Piece {
     private int row;
@@ -46,6 +46,11 @@ public class Piece {
     public void setPosition(String newPosition){
         row = ChessUtils.getRowFromPosition(newPosition);
         column = ChessUtils.getColumnFromPosititon(newPosition);
+    }
+
+    // return an empty list by default
+    public ArrayList<String> passesThrough(String position) {
+        return new ArrayList<>();
     }
 
 }

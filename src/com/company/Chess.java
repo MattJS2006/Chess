@@ -1,5 +1,6 @@
 package com.company;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Chess {
@@ -24,7 +25,10 @@ public class Chess {
         board[0][6] = new Knight("G1", true);
         board[7][1] = new Knight("B8", false);
         board[7][6] = new Knight("G8", false);
-
+        board[0][2] = new Bishop("C1", true);
+        board[0][5] = new Bishop("F1",true);
+        board[7][2] = new Bishop("C8", false);
+        board[7][5] = new Bishop("F8",false);
     }
 
     public void display(){
@@ -83,6 +87,15 @@ public class Chess {
         }
         if (validMove){
             System.out.println(toMove.getSymbol() + " moves to " + endPosition);
+            // check there are no pieces along the route
+            ArrayList<String> squares = toMove.passesThrough(endPosition);
+            if (squares.size()>0) {
+                System.out.print(" passing through ");
+                for (String p : squares) {
+                    System.out.print(p + ", ");
+                }
+            }
+            System.out.println();
             // Update board
             int startRow = ChessUtils.getRowFromPosition(startPosition);
             int startCol = ChessUtils.getColumnFromPosititon(startPosition);
@@ -90,6 +103,7 @@ public class Chess {
             int targetCol = ChessUtils.getColumnFromPosititon(endPosition);
             board[targetRow][targetCol] = board[startRow][startCol];
             board[startRow][startCol] = null;
+            toMove.setPosition(endPosition);
         }else{
             System.out.println("You can't do that!");
         }
