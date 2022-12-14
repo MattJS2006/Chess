@@ -86,13 +86,22 @@ public class Chess {
             validMove = toMove.isValidMove(endPosition);
         }
         if (validMove){
-            System.out.println(toMove.getSymbol() + " moves to " + endPosition);
-            // check there are no pieces along the route
-            ArrayList<String> squares = toMove.passesThrough(endPosition);
-            if (squares.size()>0) {
-                System.out.print(" passing through ");
-                for (String p : squares) {
-                    System.out.print(p + ", ");
+            if (endPosition == null) {
+                System.out.println(toMove.getSymbol() + " moves to " + endPosition);
+                // check there are no pieces along the route
+                ArrayList<String> squares = toMove.passesThrough(endPosition);
+                if (squares.size() > 0) {
+                    System.out.print(" passing through ");
+                    for (String p : squares) {
+                        System.out.print(p + ", ");
+                    }
+                }
+            }
+            if (endPosition != null) {
+                Piece endPiece = getPieceAt(endPosition);
+                if ((endPiece.colourBlack() == true && toMove.colourBlack() == false) ||
+                   (endPiece.colourBlack() == false && toMove.colourBlack() == true)){
+                    System.out.println(toMove.getSymbol() + " captures " + endPiece.getSymbol());
                 }
             }
             System.out.println();

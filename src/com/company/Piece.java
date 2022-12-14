@@ -53,4 +53,8 @@ public class Piece {
         return new ArrayList<>();
     }
 
+    public boolean colourBlack(){
+        return isBlack;
+    }
+
 }
