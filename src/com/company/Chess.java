@@ -15,7 +15,7 @@ public class Chess {
             board[1][c] = new Piece(1, c, false);
             board[6][c] = new Piece(6, c, true);
         }
-        board[0][4] = new King("E1",true);
+        board[0][4] = new King("E1", true);
         board[7][4] = new King("E8", false);
         board[0][0] = new Rook("A1", true);
         board[0][7] = new Rook("H1", true);
@@ -29,6 +29,8 @@ public class Chess {
         board[0][5] = new Bishop("F1",true);
         board[7][2] = new Bishop("C8", false);
         board[7][5] = new Bishop("F8",false);
+        board[0][3] = new Queen("D1", true);
+        board[7][3] = new Queen("D8", false);
     }
 
     public void display(){
@@ -81,10 +83,14 @@ public class Chess {
         System.out.print("Enter the square to move to:");
         String endPosition = input.nextLine();
         Piece toMove = getPieceAt(startPosition);
+        Piece endPiece = getPieceAt(endPosition);
         boolean validMove = false;
         if (toMove != null){
             validMove = toMove.isValidMove(endPosition);
         }
+        if ((endPiece.colourBlack() == true && toMove.colourBlack() == true) ||
+                (endPiece.colourBlack() == false && toMove.colourBlack() == false))
+            validMove = false;
         if (validMove){
             if (endPosition == null) {
                 System.out.println(toMove.getSymbol() + " moves to " + endPosition);
@@ -97,10 +103,9 @@ public class Chess {
                     }
                 }
             }
-            if (endPosition != null) {
-                Piece endPiece = getPieceAt(endPosition);
+            if (endPiece != null) {
                 if ((endPiece.colourBlack() == true && toMove.colourBlack() == false) ||
-                   (endPiece.colourBlack() == false && toMove.colourBlack() == true)){
+                        (endPiece.colourBlack() == false && toMove.colourBlack() == true)) {
                     System.out.println(toMove.getSymbol() + " captures " + endPiece.getSymbol());
                 }
             }
