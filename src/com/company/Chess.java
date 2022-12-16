@@ -122,4 +122,14 @@ public class Chess {
             System.out.println("You can't do that!");
         }
     }
+
+    public static boolean isCapture(String pos,String targetPos){
+        // Converts position to Row and Column
+        int row = ChessUtils.getRowFromPosition(pos);
+        int col = ChessUtils.getColumnFromPosititon(pos);
+        int targetRow = ChessUtils.getRowFromPosition(targetPos);
+        int targetCol = ChessUtils.getColumnFromPosititon(targetPos);
+        if(Piece.colourBlack())
+        return false;
+    }
 }

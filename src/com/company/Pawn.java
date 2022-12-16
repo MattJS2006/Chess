@@ -16,8 +16,8 @@ public class Pawn extends Piece{
         int col = ChessUtils.getColumnFromPosititon(getPosition());
         int targetRow = ChessUtils.getRowFromPosition(targetPos);
         int targetCol = ChessUtils.getColumnFromPosititon(targetPos);
+        capture = Chess.isCapture(getPosition(),targetPos);
         // Can't stand still
-        capture = isCapture(targetPos);
         if(targetRow == row && targetCol == col) {
             return false;
         }
@@ -34,16 +34,6 @@ public class Pawn extends Piece{
             notMoved = false;
             return true;
         }
-        return false;
-    }
-
-    private boolean isCapture(String targetPos){
-        // Converts position to Row and Column
-        int row = ChessUtils.getRowFromPosition(getPosition());
-        int col = ChessUtils.getColumnFromPosititon(getPosition());
-        int targetRow = ChessUtils.getRowFromPosition(targetPos);
-        int targetCol = ChessUtils.getColumnFromPosititon(targetPos);
-
         return false;
     }
 }

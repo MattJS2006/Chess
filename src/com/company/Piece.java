@@ -53,7 +53,7 @@ public class Piece {
         return new ArrayList<>();
     }
 
-    public boolean colourBlack(){
+    public static boolean colourBlack(){
         return isBlack;
     }
 
